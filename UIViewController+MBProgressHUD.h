@@ -14,6 +14,13 @@
 typedef void (^HUDFinishedHandler)();
 
 /*
+ * An instance of MBProgressHUD
+ * This will allow creation of the HUD and setting
+ * it's available properties before calling showHUD
+ */
+@property (nonatomic, readonly) MBProgressHUD *progressHUD;
+
+/*
  * Shows an MBProgressHUD with the default spinner
  * The HUD is added as a subview to this view
  * controller's parentViewController.view.

@@ -22,7 +22,6 @@ const void *finishedHandlerKey = &finishedHandlerKey;
 
 @interface UIViewController (MBProgressHUD_Private)
 
-@property (nonatomic, retain) MBProgressHUD *progressHUD;
 @property (nonatomic, copy) HUDFinishedHandler finishedHandler;
 
 @end
