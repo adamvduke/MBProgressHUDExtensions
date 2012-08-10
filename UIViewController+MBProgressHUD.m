@@ -13,12 +13,12 @@
 /* This key is used to dynamically create an instance variable
  * within the MBProgressHUD category using objc_setAssociatedObject
  */
-const char *progressHUDKey = "progressHUDKey";
+const void *progressHUDKey = &progressHUDKey;
 
 /* This key is used to dynamically create an instance variable
  * within the MBProgressHUD category using objc_setAssociatedObject
  */
-const char *finishedHandlerKey = "finishedHandlerKey";
+const void *finishedHandlerKey = &finishedHandlerKey;
 
 @interface UIViewController (MBProgressHUD_Private)
 
