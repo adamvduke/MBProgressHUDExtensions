@@ -26,6 +26,21 @@ const void *finishedHandlerKey = &finishedHandlerKey;
 
 @end
 
+@implementation UIViewController (MBProgressHUD_Private)
+
+- (HUDFinishedHandler)finishedHandler
+{
+    HUDFinishedHandler block = objc_getAssociatedObject(self, finishedHandlerKey);
+    return block;
+}
+
+- (void)setFinishedHandler:(HUDFinishedHandler)completionBlock
+{
+    objc_setAssociatedObject(self, finishedHandlerKey, completionBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+@end
+
 @implementation UIViewController (MBProgressHUD)
 
 - (MBProgressHUD *)progressHUD
@@ -46,17 +61,6 @@ const void *finishedHandlerKey = &finishedHandlerKey;
 - (void)setProgressHUD:(MBProgressHUD *)progressHUD
 {
     objc_setAssociatedObject(self, progressHUDKey, progressHUD, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (HUDFinishedHandler)finishedHandler
-{
-    HUDFinishedHandler block = objc_getAssociatedObject(self, finishedHandlerKey);
-    return block;
-}
-
-- (void)setFinishedHandler:(HUDFinishedHandler)completionBlock
-{
-    objc_setAssociatedObject(self, finishedHandlerKey, completionBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
 - (void)_showHUDWithMessage:(NSString *)message
