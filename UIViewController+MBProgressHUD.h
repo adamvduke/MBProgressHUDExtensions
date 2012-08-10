@@ -14,7 +14,7 @@
 typedef void (^HUDFinishedHandler)();
 
 /*
- * An instance of MBProgressHUD
+ * The current instance of MBProgressHUD
  * This will allow creation of the HUD and setting
  * it's available properties before calling showHUD
  */
