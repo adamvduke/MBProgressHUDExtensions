@@ -42,6 +42,13 @@ typedef void (^HUDFinishedHandler)();
 
 /*
  * Changes the currently displayed HUD's label text to
+ * the given message and then dismisses the HUD after
+ * the given delay.
+ */
+- (void)hideHUDWithCompletionMessage:(NSString *)message afterDelay:(NSTimeInterval)delay;
+
+/*
+ * Changes the currently displayed HUD's label text to
  * the given message and then dismisses the HUD after a
  * short delay. Additionally, runs the given completion
  * block after the HUD hides.

@@ -92,10 +92,15 @@ const void *finishedHandlerKey = &finishedHandlerKey;
     self.progressHUD = nil;
 }
 
-- (void)hideHUDWithCompletionMessage:(NSString *)message
+- (void)hideHUDWithCompletionMessage:(NSString *)message afterDelay:(NSTimeInterval)delay
 {
     self.progressHUD.labelText = message;
-    [self performSelector:@selector(hideHUD) withObject:nil afterDelay:1];
+    [self performSelector:@selector(hideHUD) withObject:nil afterDelay:delay];
+}
+
+- (void)hideHUDWithCompletionMessage:(NSString *)message
+{
+    [self hideHUDWithCompletionMessage:message afterDelay:1];
 }
 
 - (void)hideHUDWithCompletionMessage:(NSString *)message finishedHandler:(HUDFinishedHandler)finishedHandler
